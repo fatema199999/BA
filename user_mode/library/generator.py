@@ -15,7 +15,6 @@ from library.fcvtn import Fcvtn
 from library.fcvtp import Fcvtp
 from library.fcvtz import Fcvtz
 from library.fdiv import Fdiv
-from library.fjcvtzs import Fjcvtzs
 from library.fmadd import Fmadd
 from library.fmax import Fmax
 from library.fmin import Fmin
@@ -61,7 +60,6 @@ class Generator():
         #blocks.extend(Fcvtp().generate_instruction_block())
         #blocks.extend(Fcvtz().generate_instruction_block())
         #blocks.extend(Fdiv().generate_instruction_block())
-        #blocks.extend(Fjcvtzs().generate_instruction_block())    #unausführbar...T
         #blocks.extend(Fmadd().generate_instruction_block())
         #blocks.extend(Fmax().generate_instruction_block())
         #blocks.extend(Fmin().generate_instruction_block())
