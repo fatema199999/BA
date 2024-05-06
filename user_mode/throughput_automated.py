@@ -9,9 +9,9 @@ code_template = """
 #include <stdint.h>
 #include <unistd.h>
 
-void write_to_csv(const char* instruction, const char* sequence_length, int roundedThroughput) {{
+void write_to_csv(const char* instruction, const char* sequence_length, double cycles_per_instruction) {{
     FILE* file = fopen("ThroughputResults.csv", "a");
-    fprintf(file, "%s, %s, %d\\n", instruction,  sequence_length, roundedThroughput);
+    fprintf(file, "%s, %s, %f\\n", instruction,  sequence_length, cycles_per_instruction);
     fclose(file);
 }}
 
@@ -20,10 +20,21 @@ int main() {{
 // Loop for warmup runs
 for (int i = 0; i < 2; i++) {{
 
+
     // Clear the registers and write the pmu counter in x20
-    __asm__ __volatile__("mov x19, 1");
-    __asm__ __volatile__("mov x20, 0");
+   
+    __asm__ __volatile__("fmov d9, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d10, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d11, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d12, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d13, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d14, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d15, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d16, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d17, %0" : : "r" (1));
+    __asm__ __volatile__("fmov d18, %0" : : "r" (1));
     __asm__ __volatile__("mov x21, 0");
+
     __asm__ volatile("isb");
     __asm__ __volatile__("mrs x20, pmccntr_el0");
 
@@ -42,16 +53,17 @@ for (int i = 0; i < 2; i++) {{
     __asm__ __volatile__("mov %0, x21" : "=r" (end_cycles));
     uint64_t cycles_over_all = end_cycles - start_cycles;
     double cycles_per_instruction = (double)(cycles_over_all / {iterations});
-    double throughput = 1.0 / cycles_per_instruction;
-    int roundedThroughput = round(throughput);
-    write_to_csv("{instruction}", "{sequence_length}", roundedThroughput);
+    //double throughput = 1.0 / cycles_per_instruction;
+    // double throughput = cycles_per_instruction;
+    //int roundedThroughput = round(throughput);
+    write_to_csv("{instruction}", "{sequence_length}", cycles_per_instruction);
 
     return 0;
 }}
 """
 
 # Number of Iterations for the following instruction block
-num_iterations = 9800
+num_iterations = 150
 
 # Generate a list with all instructions to be benchmarked and then split it up into their names and the actual assembler instruction
 blocks = []
@@ -98,7 +110,7 @@ for instruction in string:
         c_file_name = name[counter] + f"_throughput_{sequence_length}.c"
         with open(c_file_name, "w") as f:
             f.write(c_code)
-        os.system(f"gcc -O0 -o {name[counter]}_throughput_{sequence_length} {c_file_name} -lm")
+        os.system(f"gcc -O3 -o {name[counter]}_throughput_{sequence_length} {c_file_name} -lm")
         print(str(counter2) + " out of " + str(len(string) * 5) + " benchmarks created!")
         counter2 += 1
 
