@@ -51,7 +51,7 @@ class Generator():
         #blocks.extend(Fabs().generate_instruction_block())
         #blocks.extend(Fadd().generate_instruction_block())
         #blocks.extend(Fcmp().generate_instruction_block())
-        #blocks.extend(Fccmp().generate_instruction_block())      #unausführbar
+        #blocks.extend(Fccmp().generate_instruction_block())      #unausführbarrrrrrrr
         #blocks.extend(Fcsel().generate_instruction_block())      #unausführbar
         #blocks.extend(Fcvt().generate_instruction_block())       #unausführbar
         #blocks.extend(Fcvta().generate_instruction_block())
