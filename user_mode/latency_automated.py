@@ -16,6 +16,8 @@ void write_to_csv(const char* instruction, double cycles_per_instruction) {{
 
 int main() {{
 
+{asm_code}
+
     // Loop for warmup runs
     for (int i = 0; i < 2; i++) {{
         // Clear the registers and write the pmu counter in x20
@@ -47,8 +49,27 @@ int main() {{
 }}
 """
 
+# Generate asm code
+asm_code = ""
+holder0 = [2543463644356, 34635645734]
+holder1 = [105623425347.000099, 17]
+holder2 = [0, 0]
+holder3 = [1,1]
+holder4 = [300,3]
+holder5 = [8743, 1]
+holder6 = [0,897]
+holder7 = [897, 0]
+holder8 = [1, 345]
+holder9 = [81, 100]
+
+
+for i, value in enumerate(holder8, start=9):
+    asm_code += f'__asm__ __volatile__("fmov d{i}, %0" : : "r" ({value})); \n'
+
+
+
 # Number of Iteration for the following instruction block
-num_iterations = 9800
+num_iterations = 2000
 
 # Generate a list with all instructions to be benchmarked and then split it up in their names and the actual assembler instruction
 blocks = []
@@ -69,7 +90,14 @@ for instruction in string:
         else:
             instruction_block += ''.join(instruction)
 
-    c_code = code_template.format(instruction=name[counter], instruction_block=instruction_block, iterations=num_iterations * 1.0, mode=mode)
+    c_code = code_template.format(
+        instruction=name[counter], 
+        instruction_block=instruction_block, 
+        iterations=num_iterations * 1.0, 
+        mode=mode,
+        asm_code=asm_code
+        )
+    
     c_file_name = name[counter] + "_latency.c"
     with open(c_file_name, "w") as f:
         f.write(c_code)

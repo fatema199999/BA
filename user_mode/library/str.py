@@ -6,8 +6,8 @@ class Str(Instruction):
         opcode = "str"
         suffixes = [""]
         registerPrefixes = ["s", "d"]
-        numberOfOperators = 3
+        numberOfOperators = 2
         shift = [""]
-        immediates = [""]                
+        immediates = ["4"]                
         bothAllowed = False
         super().__init__(opcode, suffixes, registerPrefixes, numberOfOperators, shift, immediates, bothAllowed)

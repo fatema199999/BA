@@ -5,7 +5,7 @@ class Fneg(Instruction):
     def __init__(self):
         opcode = "fneg"
         suffixes = [""]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d"]
         numberOfOperators = 2        
         shift = [""]
         immediates = [""]                

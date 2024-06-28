@@ -2,8 +2,14 @@
 #define INCLUDE_VERMAGIC
 #include <linux/build-salt.h>
 #include <linux/elfnote-lto.h>
+#include <linux/export-internal.h>
 #include <linux/vermagic.h>
 #include <linux/compiler.h>
+
+#ifdef CONFIG_UNWINDER_ORC
+#include <asm/orc_header.h>
+ORC_HEADER;
+#endif
 
 BUILD_SALT;
 BUILD_LTO_INFO;
@@ -25,12 +31,14 @@ __section(".gnu.linkonce.this_module") = {
 MODULE_INFO(retpoline, "Y");
 #endif
 
+
+
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
-	{ 0xafdc110e, "module_layout" },
-	{ 0x52e84fad, "on_each_cpu_cond_mask" },
+	{ 0x122c3a7e, "_printk" },
 	{ 0x37070c42, "__cpu_online_mask" },
-	{ 0x92997ed8, "_printk" },
+	{ 0x52e84fad, "on_each_cpu_cond_mask" },
+	{ 0xcb35643c, "module_layout" },
 };
 
 MODULE_INFO(depends, "");

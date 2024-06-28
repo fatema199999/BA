@@ -4,8 +4,8 @@ from library.instruction import Instruction
 class Fcvta(Instruction):
     def __init__(self):
         opcode = "fcvta"
-        suffixes = ["s", "u"]
-        registerPrefixes = ["s", "d"]
+        suffixes = []
+        registerPrefixes = ["d"]
         numberOfOperators = 2
         shift = [""]
         immediates = [""]

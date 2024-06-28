@@ -1,8 +1,8 @@
 # Class to generate the list of instructions which you want to benchmark
 
-from library.add import Add   
+from library.add import Add
 from library.sub import Sub    
-
+from library.mov import Mov
 from library.fabs import Fabs
 from library.fadd import Fadd
 from library.fcmp import Fcmp
@@ -50,8 +50,8 @@ class Generator():
         #blocks.extend(Add().generate_instruction_block())
         #blocks.extend(Fabs().generate_instruction_block())
         #blocks.extend(Fadd().generate_instruction_block())
-        #blocks.extend(Fcmp().generate_instruction_block())
-        #blocks.extend(Fccmp().generate_instruction_block())      #unausführbarrrrrrrr
+        #blocks.extend(Fcmp().generate_instruction_block())      #unausführbar
+        #blocks.extend(Fccmp().generate_instruction_block())     #unausführbar
         #blocks.extend(Fcsel().generate_instruction_block())      #unausführbar
         #blocks.extend(Fcvt().generate_instruction_block())       #unausführbar
         #blocks.extend(Fcvta().generate_instruction_block())
@@ -59,7 +59,7 @@ class Generator():
         #blocks.extend(Fcvtn().generate_instruction_block())
         #blocks.extend(Fcvtp().generate_instruction_block())
         #blocks.extend(Fcvtz().generate_instruction_block())
-        #blocks.extend(Fdiv().generate_instruction_block())
+        blocks.extend(Fdiv().generate_instruction_block())   
         #blocks.extend(Fmadd().generate_instruction_block())
         #blocks.extend(Fmax().generate_instruction_block())
         #blocks.extend(Fmin().generate_instruction_block())
@@ -73,15 +73,15 @@ class Generator():
         #blocks.extend(Fsqrt().generate_instruction_block())       
         #blocks.extend(Fsub().generate_instruction_block())   
         #blocks.extend(Ldnp().generate_instruction_block())       #unausführbar  
-        #blocks.extend(Ldp().generate_instruction_block())        #unausführbar
-        #blocks.extend(Ldr().generate_instruction_block())        #teilweise ausführbar(nur mit s)
+        #blocks.extend(Fsub().generate_instruction_block())        #unausführbar
+        #blocks.extend(Ldr().generate_instruction_block())        
         #blocks.extend(Ldur().generate_instruction_block())       #unausführbar
         #blocks.extend(Scvtf().generate_instruction_block())       
         #blocks.extend(Stnp().generate_instruction_block())       #unausführbar
         #blocks.extend(Stp().generate_instruction_block())        #unausführbar
         #blocks.extend(Str().generate_instruction_block())        #unausführbar
         #blocks.extend(Stur().generate_instruction_block()) 
-        blocks.extend(Ucvtf().generate_instruction_block())       
+        #blocks.extend(Ucvtf().generate_instruction_block())       
 
 
 

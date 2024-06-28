@@ -6,7 +6,7 @@ class Fmsub(Instruction):
         opcode = "fmsub"
         suffixes = [""]
         registerPrefixes = ["s", "d"]
-        numberOfOperators = 3            
+        numberOfOperators = 4     
         shift = [""]
         immediates = [""]                
         bothAllowed = False

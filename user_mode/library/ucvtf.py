@@ -5,7 +5,7 @@ class Ucvtf(Instruction):
     def __init__(self):
         opcode = "ucvtf"
         suffixes = [""]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d"]
         numberOfOperators = 2
         shift = [""]
         immediates = [""]                

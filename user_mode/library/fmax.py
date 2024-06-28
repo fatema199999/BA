@@ -5,7 +5,7 @@ class Fmax(Instruction):
     def __init__(self):
         opcode = "fmax"
         suffixes = ["","nm"]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d"]
         numberOfOperators = 3
         shift = [""]
         immediates = [""]

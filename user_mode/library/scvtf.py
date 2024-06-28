@@ -5,7 +5,7 @@ class Scvtf(Instruction):
     def __init__(self):
         opcode = "scvtf"
         suffixes = [""]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d","x"]
         numberOfOperators = 2
         shift = [""]
         immediates = [""]                

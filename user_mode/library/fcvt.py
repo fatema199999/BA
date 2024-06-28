@@ -5,9 +5,9 @@ class Fcvt(Instruction):
     def __init__(self):
         opcode = "fcvt"
         suffixes = [""]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d", "s"]
         numberOfOperators = 2
         shift = [""]
-        immediates = [""]
+        immediates = []
         bothAllowed = False
         super().__init__(opcode, suffixes, registerPrefixes, numberOfOperators, shift, immediates, bothAllowed)

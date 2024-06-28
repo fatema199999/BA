@@ -5,7 +5,7 @@ class Fsqrt(Instruction):
     def __init__(self):
         opcode = "fsqrt"
         suffixes = [""]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["s","d"]
         numberOfOperators = 2        
         shift = [""]
         immediates = [""]                

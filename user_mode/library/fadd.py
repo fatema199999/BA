@@ -5,7 +5,7 @@ class Fadd(Instruction):
     def __init__(self):
         opcode = "fadd"
         suffixes = [""]
-        registerPrefixes = ["d", "s"]
+        registerPrefixes = ["d"]
         numberOfOperators = 3
         shift = [""]
         immediates = [""]

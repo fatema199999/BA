@@ -1,13 +1,13 @@
 from library.instruction import Instruction
 
-
+#LDR (literal, SIMD and FP)
 class Ldr(Instruction):
     def __init__(self):
         opcode = "ldr"
         suffixes = [""]
-        registerPrefixes = ["s"]
-        numberOfOperators = 1
+        registerPrefixes = ["q", "d"]
+        numberOfOperators = 2
         shift = [""]
-        immediates = [""]                
+        immediates = ["#0x20"]
         bothAllowed = False
         super().__init__(opcode, suffixes, registerPrefixes, numberOfOperators, shift, immediates, bothAllowed)

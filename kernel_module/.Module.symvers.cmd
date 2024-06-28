@@ -1,1 +1,1 @@
-cmd_/home/bossow/benchmark/kernel_module/Module.symvers := sed 's/\.ko$$/\.o/' /home/bossow/benchmark/kernel_module/modules.order | scripts/mod/modpost -m -a  -o /home/bossow/benchmark/kernel_module/Module.symvers -e -i Module.symvers    -T -
+savedcmd_/home/jamal/Microbenchmarks2/kernel_module/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/jamal/Microbenchmarks2/kernel_module/Module.symvers -n -T /home/jamal/Microbenchmarks2/kernel_module/modules.order -i Module.symvers -e 

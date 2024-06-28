@@ -5,7 +5,7 @@ class Fmin(Instruction):
     def __init__(self):
         opcode = "fmin"
         suffixes = ["","nm"]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d"]
         numberOfOperators = 3
         shift = [""]
         immediates = [""]

@@ -5,7 +5,7 @@ class Stur(Instruction):
     def __init__(self):
         opcode = "stur"
         suffixes = [""]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d"]
         numberOfOperators = 2
         shift = [""]
         immediates = [""]                

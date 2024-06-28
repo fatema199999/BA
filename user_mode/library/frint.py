@@ -4,8 +4,8 @@ from library.instruction import Instruction
 class Frint(Instruction):
     def __init__(self):
         opcode = "frint"
-        suffixes = ["a", "i", "m", "n", "p", "x", "z"]
-        registerPrefixes = ["s", "d"]
+        suffixes = ["a"]
+        registerPrefixes = ["d"]
         numberOfOperators = 2
         shift = [""]
         immediates = [""]                

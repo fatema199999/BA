@@ -61,7 +61,9 @@ class Instruction():
                             i = 0
                             while i < 2:
                                 if i == 0:
-                                    instruction_block = f"__asm__ __volatile__(\"{self.opcode}{suffix} {prefix}9"
+                                    
+                                    instruction_block = f"__asm__ __volatile__(\"{self.opcode}{suffix} {prefix}2" #__asm__ __volatile__("fdiv d2, 
+                                    
                                     if self.numberOfOperators == 1:
                                         if immediate == "":
                                             instruction_block += f", {random.randint(1, 20)}"
@@ -74,7 +76,7 @@ class Instruction():
                                             instruction_block += f", {immediate}"
                                     else:
                                         if immediate == "":
-                                            instruction_block += f", {prefix}10, {prefix}9"
+                                            instruction_block += f", {prefix}9, {prefix}10" 
                                         else:
                                             instruction_block += f", {prefix}10, {immediate}"
                                     
@@ -85,13 +87,15 @@ class Instruction():
                                         blocks.append([self.opcode + suffix + "_" + prefix + "_with_immediate", instruction_block])
 
                                 else:
-                                    instruction_block = f"__asm__ __volatile__(\"{self.opcode}{suffix} {prefix}9"
+                                    
+                                     
+                                    instruction_block = f"__asm__ __volatile__(\"{self.opcode}{suffix} {prefix}2"
                                     if self.numberOfOperators == 1:
                                         instruction_block += f", {random.randint(1, 20)}"
                                     elif self.numberOfOperators == 2:
                                         instruction_block += f", {prefix}10"
                                     else:
-                                        instruction_block += f", {prefix}10, {prefix}9"
+                                        instruction_block += f", {prefix}9, {prefix}10" #__asm__ __volatile__("fdiv d8, d9, d10");
 
                                     if shift != "":
                                         instruction_block += f", {shift} \");\n"

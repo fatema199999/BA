@@ -5,7 +5,7 @@ class Fnmul(Instruction):
     def __init__(self):
         opcode = "fnmul"
         suffixes = [""]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["d"]
         numberOfOperators = 3
         shift = [""]
         immediates = [""]                

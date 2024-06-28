@@ -5,7 +5,7 @@ class Fcvtm(Instruction):
     def __init__(self):
         opcode = "fcvtm"
         suffixes = ["s", "u"]
-        registerPrefixes = ["s", "d"]
+        registerPrefixes = ["s"]
         numberOfOperators = 2
         shift = [""]
         immediates = [""]
